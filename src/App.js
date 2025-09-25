@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+const ALPHABET = " abcdefghijklmnopqrstuvwxyz ";
 
 function App() {
-  const [letters, setLetters] = useState(["a"]);
+  const [letters, setLetters] = useState([" "]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
 
@@ -22,7 +22,7 @@ function App() {
     }
 
     timeoutRef.current = setTimeout(() => {
-      setLetters((prev) => [...prev, "a"]);
+      setLetters((prev) => [...prev, " "]);
       setCurrentIndex((prev) => prev + 1);
     }, 2000);
   }, [currentIndex]);
