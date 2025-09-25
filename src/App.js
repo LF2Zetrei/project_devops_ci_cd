@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
@@ -7,7 +7,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
 
-  const incrementLetter = () => {
+  const incrementLetter = useCallback(() => {
     setLetters((prev) => {
       const updated = [...prev];
       const currentLetter = updated[currentIndex];
@@ -25,7 +25,13 @@ function App() {
       setLetters((prev) => [...prev, "a"]);
       setCurrentIndex((prev) => prev + 1);
     }, 2000);
-  };
+  }, [currentIndex]);
+
+  const handleSearch = useCallback(() => {
+    const query = letters.join("");
+    window.location.href = `https://www.google.com/search?q=${query}`;
+  }, [letters]);
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === "Enter") {
@@ -34,14 +40,10 @@ function App() {
         incrementLetter();
       }
     };
+
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [currentIndex]);
-
-  const handleSearch = () => {
-    const query = letters.join("");
-    window.location.href = `https://www.google.com/search?q=${query}`;
-  };
+  }, [handleSearch, incrementLetter]);
 
   return (
     <div
