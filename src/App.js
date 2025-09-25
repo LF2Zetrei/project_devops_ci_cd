@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+const ALPHABET = " abcdefghijklmnopqrstuvwxyz ";
 
 function App() {
-  const [letters, setLetters] = useState(["a"]);
+  const [letters, setLetters] = useState([" "]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
 
@@ -22,7 +22,7 @@ function App() {
     }
 
     timeoutRef.current = setTimeout(() => {
-      setLetters((prev) => [...prev, "a"]);
+      setLetters((prev) => [...prev, " "]);
       setCurrentIndex((prev) => prev + 1);
     }, 2000);
   }, [currentIndex]);
@@ -57,10 +57,7 @@ function App() {
         <span style={{ color: "#0F9D58" }}>l</span>
         <span style={{ color: "#DB4437" }}>e</span>
       </h1>
-      <div style={{ fontSize: "2em", margin: "20px" }}>
-        {letters.join("")}
-        <span className="blinker">|</span>
-      </div>
+      <div style={{ fontSize: "2em", margin: "20px" }}>{letters.join("")}</div>
       <button
         onClick={handleSearch}
         style={{ padding: "10px 20px", fontSize: "1.2em" }}
