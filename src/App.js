@@ -62,7 +62,7 @@ function App() {
         onClick={handleSearch}
         style={{ padding: "10px 20px", fontSize: "1.2em" }}
       >
-        Rechercher
+        Test
       </button>
     </div>
   );
