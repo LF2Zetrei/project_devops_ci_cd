@@ -76,7 +76,6 @@ function App() {
         <span style={{ color: "#DB4437" }}>e</span>
       </h1>
 
-      {/* Barre de recherche style 2010 */}
       <div
         style={{
           display: "inline-block",
