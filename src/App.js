@@ -57,10 +57,7 @@ function App() {
         <span style={{ color: "#0F9D58" }}>l</span>
         <span style={{ color: "#DB4437" }}>e</span>
       </h1>
-      <div style={{ fontSize: "2em", margin: "20px" }}>
-        {letters.join("")}
-        <span className="blinker">|</span>
-      </div>
+      <div style={{ fontSize: "2em", margin: "20px" }}>{letters.join("")}</div>
       <button
         onClick={handleSearch}
         style={{ padding: "10px 20px", fontSize: "1.2em" }}
